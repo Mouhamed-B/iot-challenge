@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 21 juin 2021 à 18:43
--- Version du serveur :  10.4.17-MariaDB
--- Version de PHP : 8.0.2
+-- Généré le : ven. 25 juin 2021 à 00:50
+-- Version du serveur :  10.4.18-MariaDB
+-- Version de PHP : 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données : `api`
 --
+CREATE DATABASE IF NOT EXISTS `api` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `api`;
 
 -- --------------------------------------------------------
 
@@ -30,47 +32,54 @@ SET time_zone = "+00:00";
 CREATE TABLE `mean` (
   `id` int(11) NOT NULL,
   `value` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `read` int(1) NOT NULL DEFAULT 0,
   `fired` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- RELATIONS POUR LA TABLE `mean`:
+--
+
+--
 -- Déchargement des données de la table `mean`
 --
 
-INSERT INTO `mean` (`id`, `value`, `timestamp`, `read`, `fired`) VALUES
-(4, 0, '2021-06-19 18:24:50', 0, 1),
-(5, 0, '2021-06-19 18:24:52', 0, 0),
-(6, 0, '2021-06-19 18:24:54', 0, 0),
-(7, 0, '2021-06-19 18:24:56', 0, 0),
-(8, 0, '2021-06-19 18:27:55', 0, 0),
-(9, 12345, '2021-06-19 18:32:02', 0, 0),
-(10, 0, '2021-06-19 18:32:40', 0, 0),
-(11, 0, '2021-06-19 18:33:17', 0, 0),
-(12, 1233445, '2021-06-19 18:33:44', 0, 0),
-(13, 12, '2021-06-19 18:34:02', 0, 0),
-(14, 2345, '2021-06-19 19:15:05', 0, 0);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `measurements`
---
-
-CREATE TABLE `measurements` (
-  `value` int(100) NOT NULL,
-  `timestamp` int(100) NOT NULL,
-  `read` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `measurements`
---
-
-INSERT INTO `measurements` (`value`, `timestamp`, `read`) VALUES
-(100, 1, 0),
-(150, 2, 1);
+INSERT INTO `mean` (`id`, `value`, `read`, `fired`) VALUES
+(9, 142, 0, 1),
+(10, 245, 0, 1),
+(11, 354, 0, 1),
+(12, 455, 0, 1),
+(13, 854, 0, 1),
+(15, 745, 0, 1),
+(16, 475, 0, 1),
+(17, 854, 0, 1),
+(18, 256, 0, 1),
+(20, 133, 0, 1),
+(21, 48, 0, 1),
+(22, 52, 0, 1),
+(23, 43, 0, 1),
+(24, 41, 0, 1),
+(25, 43, 0, 1),
+(26, 51, 0, 1),
+(27, 62, 0, 1),
+(28, 498, 0, 1),
+(29, 115, 0, 1),
+(30, 948, 0, 1),
+(31, 944, 0, 1),
+(32, 826, 0, 1),
+(33, 950, 0, 1),
+(34, 759, 0, 1),
+(35, 976, 0, 1),
+(36, 1024, 0, 1),
+(37, 1024, 0, 1),
+(38, 1024, 0, 1),
+(39, 1024, 0, 1),
+(40, 1024, 0, 1),
+(41, 1024, 0, 1),
+(42, 1024, 0, 1),
+(43, 1024, 0, 1),
+(44, 378, 0, 1),
+(45, 397, 0, 1);
 
 --
 -- Index pour les tables déchargées
@@ -83,12 +92,6 @@ ALTER TABLE `mean`
   ADD PRIMARY KEY (`id`);
 
 --
--- Index pour la table `measurements`
---
-ALTER TABLE `measurements`
-  ADD PRIMARY KEY (`timestamp`);
-
---
 -- AUTO_INCREMENT pour les tables déchargées
 --
 
@@ -96,13 +99,7 @@ ALTER TABLE `measurements`
 -- AUTO_INCREMENT pour la table `mean`
 --
 ALTER TABLE `mean`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT pour la table `measurements`
---
-ALTER TABLE `measurements`
-  MODIFY `timestamp` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
